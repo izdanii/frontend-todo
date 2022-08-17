@@ -3,9 +3,7 @@
 }
 
 body{
-    background: linear-gradient(
-        orange, maroon
-    );
+    background: maroon;
     margin: center;
     text-align: center;
 } 
@@ -14,10 +12,11 @@ body{
     border-radius: 5px;
     width: 100%;
     text-align: center;
+    color: white;
  }
  
  .card-content {
-    background-image: linear-gradient(maroon, orange);
+    background-color: orange;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: white;
@@ -38,6 +37,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: black;
  }
 
  hr{
@@ -60,5 +60,13 @@ body{
     width: fit-content;
     margin: 0 auto;
  }
+
+ .header-list{
+    color: white;
+ }
+
+label{
+    color: white;
+}
  
  
