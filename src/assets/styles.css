@@ -1,0 +1,64 @@
+*{
+    font-family:'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',' Arial', 'sans-serif' ;
+}
+
+body{
+    background: linear-gradient(
+        orange, maroon
+    );
+    margin: center;
+    text-align: center;
+} 
+ .card-header{
+    align-self: center;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+ }
+ 
+ .card-content {
+    background-image: linear-gradient(maroon, orange);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+ }
+ 
+ .card-container{
+    display: flex;
+    font-size: 1.25rem;
+    padding: 1rem;
+    align-items: center;
+    flex-direction: column;
+ }
+
+ .card-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+
+ hr{
+    height: 2px;
+    background-color: black;
+    border: none;
+ }
+
+ .form-field1{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .form-field{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .form-container{
+    width: fit-content;
+    margin: 0 auto;
+ }
+ 
+ 
