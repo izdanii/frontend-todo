@@ -1,22 +1,6 @@
 import React from 'react';
 
-const Index = ({addHandler, todo, setTodo}) => {
-
-  // console.log(props);
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!todo.name || !todo.desc) {
-      alert('Please fill in all fields');
-      return;
-    } else {
-      addHandler(todo);
-    }
-    setTodo({
-      id: '',
-      name: '',
-      desc: ''
-    });
-  };
+const Index = ({handleSubmit, todo, setTodo}) => {
 
   return (
     <form className='form-container' onSubmit={e => handleSubmit(e)}>
@@ -26,6 +10,7 @@ const Index = ({addHandler, todo, setTodo}) => {
           type='text'
           name='name'
           placeholder='What your plan?'
+          value={todo.name}
           onChange={e => setTodo({ ...todo, name: e.target.value })}
         />
       </div>
@@ -35,6 +20,7 @@ const Index = ({addHandler, todo, setTodo}) => {
           type='text'
           name='description'
           placeholder='How it will goin?'
+          value={todo.desc}
           onChange={e => setTodo({ ...todo, desc: e.target.value })}
         />
       </div>

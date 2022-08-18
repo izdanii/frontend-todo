@@ -23,10 +23,10 @@ const Index = () => {
   };
 
   const updateTodoHandler = id => {
-    const newData = todos.map(item => item.id == id ? {...item, name:todo.name, desc:todo.desc} : item);
-    console.log(newData);
-    setTodos(newData);
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newData));
+    const updateDataTodo = todos.find((todo) => {
+      return todo.id === id;
+    });
+    setTodo({id, name:updateDataTodo.name, desc:updateDataTodo.desc})
   }
 
 
@@ -41,11 +41,38 @@ const Index = () => {
     listTodos && setTodos(listTodos);
   }, [setTodos]);
 
+    // console.log(props);
+    const handleSubmit = e => {
+      e.preventDefault();
+      if (!todo.name || !todo.desc) {
+        alert('Please fill in all fields');
+        return;
+      } else if (!todo.id) {
+        addTodoHandler(todo);
+      } else{
+        const dataUpdate = todos.map((t) =>
+        t.id === todo.id
+            ? { ...t, name: todo.name, desc: todo.desc }
+            : t
+        );
+        setTodos(dataUpdate);
+        localStorage.setItem(
+            LOCAL_STORAGE_KEY,
+            JSON.stringify(dataUpdate)
+        );
+      }
+      setTodo({
+        id: '',
+        name: '',
+        desc: ''
+      });
+    };
+
   return (
     <div>
       <h1 className='header-list'>Hello, Create Your Activity</h1>
       <br></br>
-      <TodoAdd addHandler={addTodoHandler} todo={todo} setTodo={setTodo}/>
+      <TodoAdd addHandler={addTodoHandler} todo={todo} setTodo={setTodo} todos={todos} handleSubmit={handleSubmit}/>
       <TodoList todos={todos} deleteTodos={deleteTodoHandler} updatedTodo={updateTodoHandler} />
     </div>
   );
